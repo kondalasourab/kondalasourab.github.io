@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sourab Kondala</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Sourab Kondala: fraud and risk analyst and senior customer support specialist in Dublin. Ex-PayPal disputes and chargebacks, MSc Fintech (First Class Honours).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+img{max-width:100%}
+body{margin:0}
+/* Layout: a dark header where the payment streams converge on the portrait, then one reading column on a ledger grid (dates and figures in a mono gutter, like a case record). */
+:root{
+  --bg:#f4f4fa; --surface:#ffffff; --ink:#16143a; --muted:#5d5b7c; --rule:#e1e0ee;
+  --accent:#5446d2; --accent-soft:#ecebfc; --flag:#9c6512; --flag-soft:#f7ecd9; --good:#127a5a; --good-soft:#e2f3ec;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  /* fixed header band, matches the banner art in both themes */
+  --band:#0d0c23; --band-ink:#ffffff; --band-muted:#c3c0ea; --band-accent:#b3a8ff;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d0c22; --surface:#17163a; --ink:#ecebf8; --muted:#a4a2c6; --rule:#2a2852;
+  --accent:#ab9fff; --accent-soft:#25214f; --flag:#f0b252; --flag-soft:#3a2c12; --good:#5fd3a8; --good-soft:#123329; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d0c22; --surface:#17163a; --ink:#ecebf8; --muted:#a4a2c6; --rule:#2a2852;
+  --accent:#ab9fff; --accent-soft:#25214f; --flag:#f0b252; --flag-soft:#3a2c12; --good:#5fd3a8; --good-soft:#123329; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+.nw{white-space:nowrap}
+.num{font-variant-numeric:tabular-nums}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--band)}
+nav{position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:color-mix(in srgb, var(--band) 92%, transparent);backdrop-filter:blur(10px);color:var(--band-ink)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.mark{white-space:nowrap;font:800 17px/1 var(--display);font-stretch:118%;letter-spacing:.02em;text-decoration:none}
+.mark span{color:var(--band-accent)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font:500 14px/1 var(--body)}
+nav ul a{text-decoration:none;color:var(--band-muted)}
+nav ul a:hover{color:var(--band-ink)}
+@media (max-width:680px){.mark{font-size:15px} nav ul{gap:12px;font-size:13px} nav ul li.opt{display:none}}
+@media (max-width:440px){nav ul li.opt2{display:none}}
+
+/* header band */
+.band{--H:clamp(390px, 31vw, 420px);--fx:33%;background:var(--band);color:var(--band-ink);position:relative;overflow:hidden}
+.stage{position:relative;height:var(--H)}
+.art{position:absolute;top:0;height:100%;width:calc(var(--H) * 4);left:calc(var(--fx) - var(--H) * 1.811);background:url(hero.jpg) center/100% 100% no-repeat}
+.me{position:absolute;left:45.27%;top:50.5%;width:calc(var(--H) * .44);aspect-ratio:1;transform:translate(-50%,-50%);margin:0;border-radius:50%;overflow:hidden;
+  box-shadow:0 0 0 3px rgba(205,198,255,.75),0 0 0 10px rgba(150,135,255,.16),0 0 70px 10px rgba(140,125,255,.45)}
+.me img{display:block;width:100%;height:100%;object-fit:cover}
+.htext{position:absolute;top:50%;transform:translateY(-50%);right:max(20px, calc((100% - 1040px) / 2 + 20px));width:min(560px, 47%)}
+.status{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:999px;background:rgba(179,168,255,.14);color:var(--band-accent);font:500 13.5px/1 var(--mono);letter-spacing:.02em}
+.status i{width:8px;height:8px;border-radius:50%;background:#7ee0b5;box-shadow:0 0 0 4px rgba(126,224,181,.2)}
+h1{font:800 clamp(40px,5.6vw,72px)/0.95 var(--display);font-stretch:120%;letter-spacing:-.01em;margin:18px 0 12px;text-wrap:balance}
+.role{font:600 clamp(16px,1.7vw,19px)/1.45 var(--display);font-stretch:106%;color:var(--band-muted);margin:0 0 22px}
+.role b{color:var(--band-ink);font-weight:700}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:10px;font:600 15px/1 var(--body);text-decoration:none;border:1px solid rgba(255,255,255,.22);background:transparent;color:var(--band-ink);cursor:pointer}
+.btn:hover{border-color:var(--band-accent)}
+.btn.primary{background:#fff;color:#16143a;border-color:#fff}
+.btn.primary:hover{background:var(--band-accent);border-color:var(--band-accent)}
+.btn svg{width:17px;height:17px;flex:none}
+@media (max-width:1060px){.role .sep{display:none}.role b.nw{display:block}.role br{display:none}.role span.nw{display:inline-block;margin-right:.9em}}
+@media (max-width:820px){
+  .band{--H:250px;--fx:50%}
+  .htext{position:static;transform:none;width:auto;padding-block:8px 34px;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+  .me{width:calc(var(--H) * .5)}
+}
+
+/* intro */
+.intro{display:grid;grid-template-columns:1.35fr 1fr;gap:44px;padding-block:44px 30px}
+.intro > div{min-width:0}
+.intro p{margin:0;max-width:62ch}
+.k{font:500 13px/1.6 var(--mono);color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin:0 0 12px}
+.roles{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.roles li{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;background:var(--surface);border:1px solid var(--rule);font-weight:600}
+.roles li::before{content:"";width:8px;height:8px;border-radius:2px;transform:rotate(45deg);background:var(--accent);flex:none}
+@media (max-width:820px){.intro{grid-template-columns:1fr;gap:26px;padding-top:30px}}
+
+/* figures ledger */
+.ledger{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--rule);margin-bottom:20px}
+.fig{padding:22px 18px 20px;border-left:1px solid var(--rule);min-width:0}
+.fig:nth-child(3n+1){border-left:0;padding-left:0}
+.fig:nth-child(n+4){border-top:1px solid var(--rule)}
+.fig b{display:block;font:500 clamp(26px,3.2vw,34px)/1 var(--mono);letter-spacing:-.02em;margin-bottom:8px;font-variant-numeric:tabular-nums}
+.fig span{display:block;font-size:14px;line-height:1.4;color:var(--muted)}
+@media (max-width:860px){.ledger{grid-template-columns:repeat(2,1fr)}.fig{border-left:0;padding-left:0;border-top:1px solid var(--rule)}.fig:nth-child(-n+2){border-top:0}.fig:nth-child(even){padding-left:18px;border-left:1px solid var(--rule)}}
+
+/* sections */
+section{padding-block:56px;border-top:1px solid var(--rule)}
+.sh{display:grid;grid-template-columns:200px 1fr;gap:32px;margin-bottom:30px}
+.sh .k{padding-top:8px;margin:0}
+.sh h2{font:800 clamp(28px,4vw,40px)/1.08 var(--display);font-stretch:115%;margin:0;text-wrap:balance}
+.sh p:not(.k){grid-column:2;margin:8px 0 0;color:var(--muted);max-width:62ch}
+@media (max-width:760px){.sh{grid-template-columns:1fr;gap:6px}.sh p:not(.k){grid-column:1}}
+
+/* experience */
+.job{display:grid;grid-template-columns:200px 1fr;gap:32px;padding-block:26px;border-top:1px dashed var(--rule)}
+.job:first-of-type{border-top:0;padding-top:0}
+.when{font:400 14px/1.6 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.when b{display:block;color:var(--ink);font-weight:500}
+.job > div{min-width:0}
+.job h3{font:700 21px/1.25 var(--display);font-stretch:108%;margin:0 0 4px}
+.org{color:var(--muted);margin:0 0 12px;font-size:16px}
+.job ul{margin:0;padding-left:20px}
+.job li{margin-bottom:6px;max-width:68ch}
+.job li::marker{color:var(--accent)}
+.tag{display:inline-block;margin-left:8px;padding:3px 8px;border-radius:6px;font:500 12px/1.3 var(--mono);vertical-align:3px;background:var(--flag-soft);color:var(--flag)}
+.sub{margin:30px 0 0;padding-top:22px;border-top:1px solid var(--rule);font:500 13px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sub + .job{border-top:0}
+@media (max-width:760px){.job{grid-template-columns:1fr;gap:6px}}
+
+/* dissertation */
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:18px;padding:clamp(22px,4vw,38px)}
+.panel + .panel{margin-top:18px}
+.ptitle{font:700 clamp(21px,2.6vw,27px)/1.3 var(--display);font-stretch:106%;margin:0 0 10px;text-wrap:balance}
+.pmeta{font:400 14px/1.6 var(--mono);color:var(--muted);margin:0 0 22px}
+.lead{margin:0 0 24px;max-width:70ch}
+.finding{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 12px 12px 0;padding:18px 22px;margin:0 0 30px}
+.finding b{display:block;font:700 19px/1.3 var(--display);font-stretch:106%;margin-bottom:6px}
+.finding p{margin:0}
+h4{font:500 13px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.chart{display:grid;gap:12px}
+.crow{display:grid;grid-template-columns:minmax(150px,240px) 1fr 56px;gap:14px;align-items:center}
+.crow > *{min-width:0}
+.crow .n{font-size:15px;line-height:1.3}
+.crow .v{font:500 15px/1 var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.ctrack{position:relative;height:14px;border-radius:4px;background:color-mix(in srgb, var(--rule) 75%, transparent)}
+.ctrack i{position:absolute;inset:0 auto 0 0;border-radius:4px;background:color-mix(in srgb, var(--muted) 55%, transparent)}
+.crow.hi .ctrack i{background:var(--accent)}
+.crow.hi .n{font-weight:600}
+.chance{position:absolute;top:-6px;bottom:-6px;left:50%;border-left:2px dashed var(--flag)}
+.axis{display:grid;grid-template-columns:minmax(150px,240px) 1fr 56px;gap:14px;margin-top:4px}
+.axis .t{position:relative;height:16px;font:400 12px/1 var(--mono);color:var(--muted)}
+.axis .t span{position:absolute;transform:translateX(-50%)}
+.axis .t span:first-child{transform:none}
+.axis .t span:last-child{transform:translateX(-100%)}
+.legend{font-size:14px;color:var(--muted);margin:10px 0 0}
+.legend i{display:inline-block;width:16px;border-top:2px dashed var(--flag);vertical-align:middle;margin-right:8px}
+@media (max-width:640px){.crow,.axis{grid-template-columns:1fr 48px}.crow .n{grid-column:1/-1}.crow .ctrack{grid-column:1}.axis .lbl{display:none}.axis .t{grid-column:1}}
+
+.two{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;margin-top:34px;padding-top:30px;border-top:1px solid var(--rule)}
+.two > div{min-width:0}
+@media (max-width:860px){.two{grid-template-columns:1fr;gap:32px}}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:12px;padding-block:11px;border-top:1px solid var(--rule)}
+.steps li:first-child{border-top:0;padding-top:0}
+.steps li::before{content:counter(s, decimal-leading-zero);font:500 13px/1.75 var(--mono);color:var(--accent)}
+.steps b{display:block;font-weight:600}
+.steps span{color:var(--muted);font-size:15.5px}
+
+.cm{display:grid;grid-template-columns:auto 1fr 1fr;gap:6px;font-size:14px}
+.cm .h{font:500 12px/1.3 var(--mono);color:var(--muted);text-align:center;align-self:end;padding-bottom:4px}
+.cm .r{font:500 12px/1.3 var(--mono);color:var(--muted);align-self:center;padding-right:6px;text-align:right}
+.cell{border-radius:10px;padding:14px 12px;text-align:center;border:1px solid var(--rule)}
+.cell b{display:block;font:500 24px/1.1 var(--mono);font-variant-numeric:tabular-nums}
+.cell span{font-size:13px;color:var(--muted)}
+.cell.tp{background:var(--good-soft);border-color:transparent}.cell.tp b{color:var(--good)}
+.cell.fp,.cell.fn{background:var(--flag-soft);border-color:transparent}.cell.fp b,.cell.fn b{color:var(--flag)}
+.ops{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.op{border:1px solid var(--rule);border-radius:10px;padding:12px}
+.op b{display:block;font:500 20px/1.1 var(--mono);margin-bottom:4px}
+.op span{font-size:13px;color:var(--muted);line-height:1.35;display:block}
+
+.tbl{overflow-x:auto;border:1px solid var(--rule);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font:500 12px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:color-mix(in srgb, var(--bg) 70%, var(--surface))}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+th.n{text-align:right}
+tr.pri td{font-weight:600}
+.pill{display:inline-block;padding:3px 9px;border-radius:999px;font:500 12.5px/1.3 var(--mono);background:var(--good-soft);color:var(--good);white-space:nowrap}
+.cap{font-size:14px;color:var(--muted);margin:10px 0 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rb{border:1px solid var(--rule);border-radius:12px;padding:16px}
+.rb b{display:block;font:500 26px/1 var(--mono);margin-bottom:8px}
+.rb span{font-size:14.5px;color:var(--muted);line-height:1.4;display:block}
+@media (max-width:700px){.grid3,.ops{grid-template-columns:1fr}}
+.fair{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+@media (max-width:520px){.fair{gap:5px}.fa{padding:10px 2px}.fa b{font-size:16px}.fa span{font-size:11.5px}}
+.fa{text-align:center;border:1px solid var(--rule);border-radius:10px;padding:12px 6px}
+.fa b{display:block;font:500 20px/1 var(--mono);margin-bottom:6px}
+.fa span{font:400 13px/1 var(--mono);color:var(--muted)}
+.limits{font-size:15px;color:var(--muted);margin:26px 0 0;padding-top:18px;border-top:1px dashed var(--rule);max-width:76ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chips li{padding:7px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--rule);font:500 14px/1.2 var(--mono)}
+.block{margin-top:34px;padding-top:28px;border-top:1px solid var(--rule)}
+
+/* reader */
+.reader{display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start}
+.reader > div{min-width:0}
+.sheet{background:#fff;border-radius:10px;box-shadow:0 1px 2px rgba(20,18,60,.08),0 14px 40px rgba(20,18,60,.12);overflow:hidden;max-width:620px;margin:0 auto}
+.sheet img{display:block;width:100%;height:auto;aspect-ratio:910/1287}
+.ctrl{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
+.ctrl button{padding:10px 16px;border-radius:10px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);font:600 14px/1 var(--body);cursor:pointer}
+.ctrl button:hover:not(:disabled){border-color:var(--accent)}
+.ctrl button:disabled{opacity:.4;cursor:default}
+.ctrl output{font:500 14px/1 var(--mono);min-width:92px;text-align:center}
+.toc{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:2px}
+.toc button{width:100%;display:flex;justify-content:space-between;gap:10px;text-align:left;padding:8px 10px;border-radius:8px;border:0;background:transparent;color:var(--ink);font:400 15px/1.35 var(--body);cursor:pointer}
+.toc button:hover{background:var(--accent-soft)}
+.toc button span{font:400 13px/1.35 var(--mono);color:var(--muted)}
+.toc button[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.pdfbtn{display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 16px;border-radius:10px;background:var(--ink);color:var(--bg);text-decoration:none;font:600 15px/1 var(--body)}
+.pdfbtn:hover{background:var(--accent)}
+.small{font-size:13.5px;color:var(--muted);margin:10px 0 0}
+@media (max-width:860px){.reader{grid-template-columns:1fr}.reader aside{order:-1}.toc{grid-template-columns:1fr 1fr}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.sk{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px 24px;min-width:0}
+.sk h3{font:700 18px/1.3 var(--display);font-stretch:108%;margin:0 0 14px}
+.sk.lead .chips li{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+@media (max-width:700px){.skills{grid-template-columns:1fr}}
+
+/* education */
+.edu{display:grid;grid-template-columns:200px 1fr;gap:32px;padding-block:20px;border-top:1px dashed var(--rule)}
+.edu:first-of-type{border-top:0;padding-top:0}
+.edu > div{min-width:0}
+.edu h3{font:700 21px/1.25 var(--display);font-stretch:108%;margin:0 0 4px}
+.edu p{margin:0;color:var(--muted)}
+.grade{display:inline-block;margin-top:10px;padding:5px 10px;border-radius:6px;background:var(--accent-soft);color:var(--accent);font:500 14px/1.3 var(--mono)}
+@media (max-width:760px){.edu{grid-template-columns:1fr;gap:6px}}
+
+/* contact */
+.contact{background:var(--band);color:var(--band-ink);border-radius:22px;padding:clamp(26px,5vw,52px);display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:end}
+.contact > div{min-width:0}
+.contact h2{font:800 clamp(30px,4.6vw,48px)/1.02 var(--display);font-stretch:118%;margin:0 0 14px}
+.contact p{margin:0;color:var(--band-muted);max-width:46ch}
+.cl{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.cl li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);min-width:0}
+.cl .v{font:500 15px/1.3 var(--mono);overflow-wrap:anywhere;user-select:all}
+.cl .t{display:block;font:400 12px/1 var(--mono);color:var(--band-muted);margin-bottom:6px;letter-spacing:.06em;text-transform:uppercase;user-select:none}
+.cl a.v{text-decoration:none}
+.cl a.v:hover{text-decoration:underline}
+.copy{flex:none;padding:8px 12px;border-radius:8px;border:0;background:#fff;color:#16143a;font:600 13px/1 var(--body);cursor:pointer}
+@media (max-width:760px){.contact{grid-template-columns:1fr;align-items:start}}
+footer{padding-block:28px 40px;font:400 13px/1.5 var(--mono);color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<nav aria-label="Sections">
+  <div class="wrap">
+    <a class="mark" href="#top">Sourab Kondala<span>.</span></a>
+    <ul>
+      <li class="opt2"><a href="#experience">Experience</a></li>
+      <li><a href="#dissertation">Dissertation</a></li>
+      <li class="opt"><a href="#paper">Full paper</a></li>
+      <li class="opt"><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="band" id="top">
+  <div class="stage">
+    <div class="art" aria-hidden="false">
+      <figure class="me"><img src="photo.jpg" alt="Portrait of Sourab Kondala"></figure>
+    </div>
+  </div>
+  <div class="htext">
+    <span class="status"><i></i>Open to full-time roles in Dublin</span>
+    <h1>Sourab Kondala</h1>
+    <p class="role"><b class="nw">Fraud &amp; Risk Analyst</b><span class="sep"> | </span><b class="nw">Senior Customer Support Specialist</b><br><span class="nw">Disputes &amp; Chargebacks</span><span class="sep"> | </span><span class="nw">Ex-PayPal</span><span class="sep"> | </span><span class="nw">MSc Fintech (1:1)</span></p>
+    <div class="actions">
+      <a class="btn primary" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Get in touch</a>
+      <a class="btn" href="#paper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>Read my dissertation</a>
+      <a class="btn" href="https://www.linkedin.com/in/sourab-kondala" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm7 0h3.8v1.5h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91H10v-11Z"/></svg>LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="intro">
+    <div>
+      <p class="k">About</p>
+      <p>I've spent 7 years in payments and customer operations. At PayPal I spent nearly 3 years resolving complex Level 2 disputes, chargebacks and merchant cases, kept my quality audit scores at 90-95% and stood in as the team's point of contact for training when our manager was away. Before that I handled 60-65 international travel queries a day at a Concentrix contact centre and looked after passengers for IndiGo Airlines, so I'm used to busy queues and customers who need a clear answer.</p>
+      <p style="margin-top:14px">In September 2026 I finished an MSc in Fintech at National College of Ireland with First Class Honours. For my dissertation I built and tested a fraud detection framework in Python on 250,000 UPI payments. I'm looking for roles where both sides of that experience count, in fraud and risk or in senior customer support.</p>
+    </div>
+    <div>
+      <p class="k">Roles I'm looking for</p>
+      <ul class="roles">
+        <li>Fraud &amp; Risk</li>
+        <li>Payments Operations</li>
+        <li>Disputes &amp; Chargebacks</li>
+        <li>Senior Customer Support Specialist</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ledger" role="list">
+    <div class="fig" role="listitem"><b>7 yrs</b><span>in payments and customer operations</span></div>
+    <div class="fig" role="listitem"><b>55-60</b><span>Level 2 cases resolved a day at PayPal</span></div>
+    <div class="fig" role="listitem"><b>3 min</b><span>average handling time per case</span></div>
+    <div class="fig" role="listitem"><b>90-95%</b><span>quality audit scores</span></div>
+    <div class="fig" role="listitem"><b>5/5</b><span>customer satisfaction ratings on deployments</span></div>
+    <div class="fig" role="listitem"><b>1:1</b><span>First Class Honours MSc, 70.4% average</span></div>
+  </div>
+
+  <section id="experience">
+    <div class="sh"><p class="k">Experience</p><h2>Where I've worked</h2></div>
+
+    <article class="job">
+      <div class="when"><b>Nov 2022 - Aug 2025</b>2 yrs 10 mos<br>India</div>
+      <div>
+        <h3>Customer Solutions Agent Level 2 <span class="tag">Disputes &amp; chargebacks</span></h3>
+        <p class="org">PayPal India Pvt Ltd</p>
+        <ul>
+          <li>Resolved 55-60 complex Level 2 cases a day with a 3-minute average handling time by investigating Venmo disputes, chargebacks and merchant issues across phone, email and online channels.</li>
+          <li>Maintained 90-95% quality audit scores by following payments, fraud prevention and customer data protection controls with 100% adherence.</li>
+          <li>Earned 5/5 customer satisfaction ratings on deployments by explaining complex dispute outcomes in plain terms and closing cases quickly.</li>
+          <li>Acted as the team's single point of contact for training when the reporting manager was absent and answered colleagues' case handling and policy questions.</li>
+          <li>Contributed to process updates for dispute and chargeback handling and worked with internal teams through Jira and Zendesk to close cases on time.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when"><b>Nov 2020 - Feb 2022</b>1 yr 4 mos<br>India</div>
+      <div>
+        <h3>Student Academic Mentor</h3>
+        <p class="org">Vedantu Innovations Pvt Ltd</p>
+        <ul>
+          <li>Mentored 50-60 high-performing students a day (grades 6 to 10) online on academic planning and exam preparation.</li>
+          <li>Raised student retention from 80% to 92% through proactive follow-ups, progress tracking and personalised support.</li>
+          <li>Kept parents and academic teams up to date and dealt with concerns early, before they affected results.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when"><b>Jan 2020 - Aug 2020</b>8 mos<br>India</div>
+      <div>
+        <h3>Advisor Level 2, Customer Service <span class="tag">Customer support</span></h3>
+        <p class="org">Concentrix Daksh Pvt Ltd</p>
+        <ul>
+          <li>Achieved a 7.8/10 CSAT score while handling 60-65 international travel queries a day in a high-volume contact centre.</li>
+          <li>Managed bookings, itinerary changes, cancellations and refunds for complex multi-leg trips for customers of all ages.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when"><b>Jul 2017 - Nov 2019</b>2 yrs 5 mos<br>India</div>
+      <div>
+        <h3>Customer Service Officer (Commercial and Ramp)</h3>
+        <p class="org">IndiGo Airlines</p>
+        <ul>
+          <li>Looked after 50-60 passengers a day at the terminal and on the ramp with check-in, boarding, baggage and special service requests.</li>
+          <li>Processed payments for ancillary services (excess baggage, seat selection and wheelchair add-ons) accurately and in line with compliance requirements.</li>
+          <li>Worked with ramp, gate and operations teams to strict SOPs so aircraft turned around on schedule.</li>
+        </ul>
+      </div>
+    </article>
+
+    <p class="sub">Additional experience</p>
+    <article class="job">
+      <div class="when"><b>Jun 2026 - Present</b>Part-time<br>Dublin, Ireland</div>
+      <div>
+        <h3>Customer Assistant</h3>
+        <p class="org">Tesco Ireland</p>
+        <ul>
+          <li>Lead the self-service checkout area on shift. Help customers sort out payment and transaction issues and support colleagues at peak times.</li>
+          <li>Run checkout and handle cash accurately, following cash-control procedures.</li>
+          <li>Serve customers on the shop floor and keep shelves stocked.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="dissertation">
+    <div class="sh"><p class="k">Dissertation</p><h2>Does a fraud model need to know who you are?</h2>
+      <p>MSc Fintech research project, National College of Ireland, September 2026. Supervised by Dr. Muhammad Umair.</p></div>
+
+    <div class="panel">
+      <h3 class="ptitle">Demographic Signatures in Digital Payment Fraud: A Machine Learning Framework for India's UPI Ecosystem</h3>
+      <p class="pmeta">Public synthetic UPI dataset (Kaggle) | 250,000 transactions | 2.00% fraud rate | Python</p>
+      <p class="lead">When a model flags a UPI payment, is it reacting to who the customer is, to the bank, device and network behind the payment, or to what the transaction itself does? I split the predictors into three families (demographic, institutional and behavioural), stated three hypotheses before modelling, and tested each family on its own in a leakage-safe pipeline.</p>
+
+      <div class="finding">
+        <b>Behaviour carries the signal</b>
+        <p>Behavioural features alone scored 0.866 ROC-AUC against 0.872 for the full model, and the difference was not significant (DeLong test, p = 0.811). Demographic and institutional features on their own performed at chance.</p>
+      </div>
+
+      <h4>Test ROC-AUC by feature family, 80/20 test set</h4>
+      <div class="chart" role="img" aria-label="Test ROC-AUC: demographic 0.510, institutional 0.492, restricted baseline 0.736, behavioural 0.866, full model 0.872. Chance is 0.5.">
+        <div class="crow"><span class="n">Demographic / geographic</span><div class="ctrack"><i style="width:51%"></i><span class="chance"></span></div><span class="v">0.510</span></div>
+        <div class="crow"><span class="n">Institutional / channel</span><div class="ctrack"><i style="width:49.2%"></i><span class="chance"></span></div><span class="v">0.492</span></div>
+        <div class="crow"><span class="n">Restricted baseline (amount + type)</span><div class="ctrack"><i style="width:73.6%"></i><span class="chance"></span></div><span class="v">0.736</span></div>
+        <div class="crow hi"><span class="n">Behavioural</span><div class="ctrack"><i style="width:86.6%"></i><span class="chance"></span></div><span class="v">0.866</span></div>
+        <div class="crow hi"><span class="n">Full model (all families)</span><div class="ctrack"><i style="width:87.2%"></i><span class="chance"></span></div><span class="v">0.872</span></div>
+        <div class="axis"><span class="lbl"></span><div class="t"><span style="left:0">0</span><span style="left:25%">0.25</span><span style="left:50%">0.5</span><span style="left:75%">0.75</span><span style="left:100%">1.0</span></div><span></span></div>
+      </div>
+      <p class="legend"><i></i>Chance level (0.5)</p>
+
+      <div class="two">
+        <div>
+          <h4>How I built it</h4>
+          <ol class="steps">
+            <li><div><b>Remove leakage</b><span>Dropped the free-text notes field, which restated the label, and transaction status, which isn't known when a payment is scored.</span></div></li>
+            <li><div><b>Build a leakage-safe pipeline</b><span>One-hot encoding and SMOTENC resampling fitted inside the training folds only.</span></div></li>
+            <li><div><b>Train and compare four models</b><span>XGBoost as the primary model, benchmarked against logistic regression, an MLP and a TensorFlow deep network.</span></div></li>
+            <li><div><b>Lock the threshold first</b><span>Chose the operating threshold (0.36) on a validation set and locked it before scoring the untouched test set.</span></div></li>
+            <li><div><b>Explain, calibrate and audit</b><span>SHAP for explanations, isotonic calibration (Brier score 0.0212 to 0.0144) and a fairness audit across age groups.</span></div></li>
+          </ol>
+        </div>
+        <div>
+          <h4>Locked operating point, test set</h4>
+          <div class="cm" role="table" aria-label="Confusion matrix at threshold 0.36">
+            <span></span><span class="h">Flagged</span><span class="h">Not flagged</span>
+            <span class="r">Fraud</span><div class="cell tp"><b>525</b><span>caught</span></div><div class="cell fn"><b>226</b><span>missed</span></div>
+            <span class="r">Genuine</span><div class="cell fp"><b>801</b><span>false alarms</span></div><div class="cell"><b>35,948</b><span>cleared</span></div>
+          </div>
+          <div class="ops">
+            <div class="op"><b>70%</b><span>recall, fraud caught</span></div>
+            <div class="op"><b>2.2%</b><span>false-positive rate</span></div>
+            <div class="op"><b>41%</b><span>of fraud in the top 2% of scores, about 20x random review</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h4>Hypotheses, fixed before modelling</h4>
+        <div class="tbl"><table>
+          <thead><tr><th>Hypothesis</th><th>Test</th><th>Outcome</th></tr></thead>
+          <tbody>
+            <tr><td>H1: the full model beats a restricted amount-and-type baseline</td><td>Five-fold cross-validated uplift, paired t-test</td><td><span class="pill">Supported</span><br><span class="num">uplift 0.129, 95% CI 0.122-0.135, p &lt; 0.001</span></td></tr>
+            <tr><td>H2: demographic and institutional features add nothing over behaviour</td><td>DeLong paired ROC test</td><td><span class="pill">Not rejected</span><br><span class="num">difference 0.001, p = 0.811</span></td></tr>
+            <tr><td>H3: false-positive rate is even across age groups</td><td>Group-wise FPR at the locked threshold</td><td><span class="pill">Supported</span><br><span class="num">2.1% to 2.4% for every group</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="block">
+        <h4>Four models on the same pipeline</h4>
+        <div class="tbl"><table>
+          <thead><tr><th>Model</th><th class="n">ROC-AUC</th><th class="n">PR-AUC</th><th class="n">Recall</th><th class="n">Precision</th><th class="n">FPR</th></tr></thead>
+          <tbody>
+            <tr class="pri"><td>XGBoost (primary)</td><td class="n">0.870</td><td class="n">0.321</td><td class="n">0.729</td><td class="n">0.392</td><td class="n">0.023</td></tr>
+            <tr><td>MLP neural net</td><td class="n">0.862</td><td class="n">0.327</td><td class="n">0.751</td><td class="n">0.195</td><td class="n">0.063</td></tr>
+            <tr><td>TensorFlow DNN</td><td class="n">0.848</td><td class="n">0.217</td><td class="n">0.744</td><td class="n">0.124</td><td class="n">0.107</td></tr>
+            <tr><td>Logistic regression</td><td class="n">0.830</td><td class="n">0.170</td><td class="n">0.751</td><td class="n">0.071</td><td class="n">0.201</td></tr>
+          </tbody>
+        </table></div>
+        <p class="cap">80/20 test set. XGBoost stayed primary for the best ROC-AUC, the lowest false-positive rate and exact tree-based SHAP explanations.</p>
+      </div>
+
+      <div class="block">
+        <h4>Robustness checks</h4>
+        <div class="grid3">
+          <div class="rb"><b>0.488</b><span>ROC-AUC with shuffled labels. Near chance, so the pipeline isn't leaking the answer.</span></div>
+          <div class="rb"><b>0.870</b><span>ROC-AUC with class weighting instead of SMOTENC. The result doesn't depend on the resampling method.</span></div>
+          <div class="rb"><b>0.867</b><span>ROC-AUC on a time-based split, training on earlier months and testing on the final quarter.</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h4>False-positive rate by sender age group</h4>
+        <div class="fair">
+          <div class="fa"><b>2.1%</b><span>18-25</span></div>
+          <div class="fa"><b>2.1%</b><span>26-35</span></div>
+          <div class="fa"><b>2.4%</b><span>36-45</span></div>
+          <div class="fa"><b>2.1%</b><span>46-55</span></div>
+          <div class="fa"><b>2.3%</b><span>56+</span></div>
+        </div>
+        <p class="cap">Genuine customers were wrongly flagged at about the same rate in every age group. The audit is exploratory, since some groups are small.</p>
+      </div>
+
+      <div class="block">
+        <h4>Built with</h4>
+        <ul class="chips"><li>Python</li><li>scikit-learn</li><li>XGBoost</li><li>imbalanced-learn</li><li>SMOTENC</li><li>TensorFlow</li><li>SHAP</li><li>Isotonic calibration</li><li>DeLong test</li><li>Google Colab</li></ul>
+        <p class="limits">Scope: the dataset is synthetic and its label process is undocumented, so the finding holds for this dataset and not for India's UPI system as a whole. The model is a tested framework, not a deployment-ready system, and is designed to be re-run on real transaction data.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="paper">
+    <div class="sh"><p class="k">Full paper</p><h2>Read the dissertation</h2>
+      <p>All 19 pages, from the abstract to the references.</p></div>
+    <div class="reader">
+      <div>
+        <div class="sheet"><img id="pg" src="pages/p-01.jpg" alt="Dissertation page 1 of 19" width="910" height="1287"></div>
+        <div class="ctrl">
+          <button type="button" id="prev" aria-label="Previous page">Previous</button>
+          <output id="count" aria-live="polite">1 / 19</output>
+          <button type="button" id="next" aria-label="Next page">Next</button>
+        </div>
+      </div>
+      <aside>
+        <h4>Jump to</h4>
+        <ul class="toc" id="toc">
+          <li><button type="button" data-p="1">Title page <span>1</span></button></li>
+          <li><button type="button" data-p="2">Abstract and introduction <span>2</span></button></li>
+          <li><button type="button" data-p="4">Related work <span>4</span></button></li>
+          <li><button type="button" data-p="6">Data and methodology <span>6</span></button></li>
+          <li><button type="button" data-p="7">Exploratory analysis <span>7</span></button></li>
+          <li><button type="button" data-p="8">System design and implementation <span>8</span></button></li>
+          <li><button type="button" data-p="10">Evaluation <span>10</span></button></li>
+          <li><button type="button" data-p="15">Fairness audit <span>15</span></button></li>
+          <li><button type="button" data-p="16">Discussion and conclusion <span>16</span></button></li>
+          <li><button type="button" data-p="18">References <span>18</span></button></li>
+        </ul>
+        <a class="pdfbtn" href="Sourab_Kondala_MSc_Fintech_Dissertation.pdf" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>Open the PDF</a>
+        <p class="small">PDF, 19 pages, 2.3 MB</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sh"><p class="k">Skills</p><h2>What I bring</h2></div>
+    <div class="skills">
+      <div class="sk lead"><h3>Disputes and payments</h3>
+        <ul class="chips"><li>Disputes &amp; chargebacks</li><li>Payments operations</li><li>Fraud detection &amp; prevention</li><li>Merchant support</li><li>Quality &amp; compliance</li><li>Customer data protection</li></ul></div>
+      <div class="sk lead"><h3>Data and machine learning</h3>
+        <ul class="chips"><li>Python (advanced)</li><li>Machine learning</li><li>SQL</li><li>Advanced Excel</li><li>XGBoost</li><li>scikit-learn</li><li>TensorFlow</li><li>SHAP</li><li>Statistical testing</li><li>Model calibration</li><li>Fairness auditing</li></ul></div>
+      <div class="sk"><h3>Customer service and people</h3>
+        <ul class="chips"><li>Level 2 case handling</li><li>Phone, email and online support</li><li>Customer satisfaction</li><li>Training &amp; coaching</li><li>Mentoring</li><li>Stakeholder communication</li><li>Shift leadership</li></ul></div>
+      <div class="sk"><h3>Tools</h3>
+        <ul class="chips"><li>Zendesk</li><li>Salesforce</li><li>Jira</li><li>Google Colab</li></ul></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sh"><p class="k">Education</p><h2>Study</h2></div>
+    <div class="edu">
+      <div class="when">Sep 2025 - Sep 2026<br>Dublin, Ireland</div>
+      <div>
+        <h3>MSc in Fintech</h3>
+        <p>National College of Ireland. Modules in data analytics, machine learning, payments, blockchain, data governance and financial regulation.</p>
+        <span class="grade">First Class Honours (1:1) | 70.4% average</span>
+      </div>
+    </div>
+    <div class="edu">
+      <div class="when">Apr 2014 - Jun 2017<br>Odisha, India</div>
+      <div>
+        <h3>Bachelor of Business Administration</h3>
+        <p>Berhampur University. Business administration, finance, marketing and organisational management.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="border-top:0;padding-top:24px">
+    <div class="contact">
+      <div>
+        <h2>Let's talk</h2>
+        <p>I'm based in Dublin and available for full-time roles in fraud and risk, payments operations, disputes and chargebacks, or as a senior customer support specialist.</p>
+      </div>
+      <ul class="cl">
+        <li><div style="min-width:0"><span class="t">Email</span><span class="v" id="email">kondalasourab@gmail.com</span></div>
+          <button class="copy" id="copy-email" type="button">Copy</button></li>
+        <li><div style="min-width:0"><span class="t">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/sourab-kondala" target="_blank" rel="noopener">linkedin.com/in/sourab-kondala</a></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer><span>Sourab Kondala, Dublin</span><span>Updated November 2026</span></footer>
+</main>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy-email'), el=document.getElementById('email');
+  btn.addEventListener('click',function(){
+    var text=el.textContent.trim();
+    function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1800)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected'}
+    try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
+  });
+
+  var N=19, cur=1, img=document.getElementById('pg'), out=document.getElementById('count'),
+      prev=document.getElementById('prev'), next=document.getElementById('next'), toc=document.querySelectorAll('#toc button');
+  function src(n){return 'pages/p-'+(n<10?'0':'')+n+'.jpg'}
+  function show(n){
+    cur=Math.max(1,Math.min(N,n));
+    img.src=src(cur); img.alt='Dissertation page '+cur+' of '+N;
+    out.textContent=cur+' / '+N; prev.disabled=cur===1; next.disabled=cur===N;
+    var active=null; toc.forEach(function(b){var p=+b.dataset.p; if(p<=cur) active=b; b.removeAttribute('aria-current')});
+    if(active) active.setAttribute('aria-current','true');
+    if(cur<N){var pre=new Image(); pre.src=src(cur+1)}
+  }
+  prev.addEventListener('click',function(){show(cur-1)});
+  next.addEventListener('click',function(){show(cur+1)});
+  toc.forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.p)})});
+  document.querySelector('.reader').addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){show(cur+1)} else if(e.key==='ArrowLeft'){show(cur-1)}
+  });
+  show(1);
+})();
+</script>
+</body>
+</html>
